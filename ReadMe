@@ -1,0 +1,2 @@
+Developing a web application in which the company's users could create their own leave requests in pdf format depending on the inputs they filled in such as the start date, end date, completion date, and the person from the company who willreplace him. In
+the creation of these applications, we used severaltechnologies such as Spring Boot, thyme leaf, azure for logging in according to the Microsoft account, mariaDB, and docker
