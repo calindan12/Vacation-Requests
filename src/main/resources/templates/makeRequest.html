@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base2::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section>
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header text-center fs-4">
+                        Make Request
+<!--                        <th:block th:if="${session.msg}">-->
+<!--                            <p class="text-center fs-4 text-success">[[${session.msg}]]</p>-->
+<!--                            <th:block th:text="${#session.removeAttribute('msg')}"></th:block>-->
+<!--                        </th:block>-->
+                        <div class="card-body">
+                            <form action="makeVacationRequest" method="post">
+                                <div class="mb-3">
+                                    <label>From Date</label>
+                                    <input type="date" name="from_date" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label>To Date</label>
+                                    <input type="date" name="to_date" class="form-control">
+                                </div>
+                                <label>Select Replacement</label>
+                                <select class="form-select" aria-label="Default select example" name="replacement">
+                                    <option th:each="replacement : ${altiUseri}" th:text="${replacement}" th:value="${replacement}"/>
+                                </select>
+                                <label>Companies</label>
+                                <div th:each="company : ${companies}">
+                                    <label th:text="${company.name}"></label>
+                                    <br>
+                                </div>
+                                <!--                                <select class="form-select" aria-label="Default select example" name="companies"multiple>-->
+<!--                                    <option value="GLOBAL RESOLUTION EXPERTS SA">GLOBAL RESOLUTION EXPERTS SA</option>-->
+<!--                                    <option value="SC GRX ADVISORY SRL">SC GRX ADVISORY SRL</option>-->
+<!--                                </select>-->
+
+<!--                                <div class="form-check">-->
+<!--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">-->
+<!--                                    <label class="form-check-label" for="flexCheckDefault">-->
+<!--                                        Default checkbox-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                                <div class="mb-3">-->
+<!--                                    <label>Position</label>-->
+<!--                                    <input type="text" name="position" class="form-control">-->
+<!--                                </div>-->
+                                <div class="mb-3">
+                                    <label>Year</label>
+                                    <input type="year" name="year" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Date Of Completion</label>
+                                    <input type="date" name="date_of_completion" class="form-control">
+                                </div>
+                                <button class="btn btn-primary col-md-12">Create Request</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="superAdminBase::layout(~{::section})">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Title</title>
+</head>
+<body>
+<section>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Role</th>
+      <th scope="col">Edit Profile</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${otherUsers}">
+      <td th:text="${user.firstName}"></td>
+      <td th:text="${user.lastName}"></td>
+      <td th:text="${user.role}"></td>
+      <td>
+        <a th:href="@{'/principalAdmin/edit-user-profile/' + ${user.id}}">Click Here</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+</body>
+</html>

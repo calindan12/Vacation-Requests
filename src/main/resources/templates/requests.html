@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base2::layout(~{::section})">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Title</title>
+</head>
+<body>
+<section>
+  <h1>Requests</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">From Date</th>
+      <th scope="col">To Date</th>
+      <th scope="col">Path</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="request : ${requesturi}">
+      <td th:text="${request.fromDate}"></td>
+      <td th:text="${request.toDate}"></td>
+      <td>
+        <!-- Link pentru descarcare PDF -->
+        <!--      <td th:text="${#strings.replace(request.path, '/', '_')}"></td>-->
+        <a th:href="@{/user/downloadPDF/{filename}(filename=${#strings.replace(request.path, '/', '_')})}" download><i class="fas fa-file-pdf" style="color: #100f0f;"></i>Download PDF</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+</body>
+</html>
